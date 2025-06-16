@@ -3,8 +3,8 @@ name: 🧪 Nix Flake CI
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - main   # run when someone pushes directly to main (should be rare)
+  pull_request:   # run on all PRs (from dev branches to main)
 
 jobs:
   check-flake:
@@ -24,11 +24,7 @@ jobs:
         uses: cachix/cachix-action@v14
         with:
           name: schrovimger
-          # For write access (optional, needed if you want to push new builds)
           signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-          # Or, if you use API tokens for private cache or write access
-          # authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-          # Only one of signingKey or authToken is needed
 
       - name: 🔍 Run `nix flake check`
         run: nix flake check
