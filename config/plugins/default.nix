@@ -12,6 +12,7 @@
     ./luasnip.nix
     ./notify.nix
     ./notes.nix
+    ./minimap.nix
     ./snacks
     ./telescope.nix
     ./terminal.nix

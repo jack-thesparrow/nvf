@@ -30,5 +30,12 @@
       };
       img-clip.enable = true;
     };
+
+    outline = {
+      aerial-nvim = {
+        enable = true;
+        mappings.toggle = "<leader>g0";
+      };
+    };
   };
 }
