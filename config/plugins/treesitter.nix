@@ -47,12 +47,14 @@ let
   ];
 
   treeSitterEnables = builtins.listToAttrs (
-    builtins.map (lang: {
-      name = lang;
-      value = {
-        treesitter.enable = true;
-      };
-    }) treesitterLanguages
+    builtins.map
+      (lang: {
+        name = lang;
+        value = {
+          treesitter.enable = true;
+        };
+      })
+      treesitterLanguages
   );
 in
 {

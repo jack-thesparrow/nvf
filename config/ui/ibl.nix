@@ -4,8 +4,7 @@
     indent-blankline = {
       enable = true;
 
-      setupOpts = {
-      };
+      setupOpts = { };
     };
   };
 }

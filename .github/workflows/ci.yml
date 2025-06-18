@@ -31,8 +31,8 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }} # uncomment if you push cache too
 
       # 4️⃣ Check flake formatting
-      - name: 🧹 nix fmt --check
-        run: nix fmt -- --check
+      - name: 🧹 nix fmt & check
+        run: nix fmt . -- --check
 
       # 5️⃣ Check flake correctness
       - name: 🔍 nix flake check
