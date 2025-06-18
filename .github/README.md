@@ -155,7 +155,7 @@ Encountered an issue or have a question? Visit the
 
 ## License
 
-This project is licensed under the [MIT License](LICENCE). See the LICENSE file
+This project is licensed under the [MIT License](https://github.com/jack-thesparrow/schrovimger/blob/main/LICENSE). See the [LICENSE](https://github.com/jack-thesparrow/schrovimger/blob/main/LICENSE) file
 for more details.
 
 ## Acknowledgements
