@@ -9,11 +9,12 @@
   };
 
   outputs =
-    { nixpkgs
-    , nixpkgs-stable
-    , flake-parts
-    , nvf
-    , ...
+    {
+      nixpkgs,
+      nixpkgs-stable,
+      flake-parts,
+      nvf,
+      ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
