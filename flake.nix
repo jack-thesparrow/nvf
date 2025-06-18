@@ -9,12 +9,11 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      nixpkgs-stable,
-      flake-parts,
-      nvf,
-      ...
+    { nixpkgs
+    , nixpkgs-stable
+    , flake-parts
+    , nvf
+    , ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -65,7 +64,15 @@
               echo "✔ NVF configuration flake check passed" > $out
             '';
           };
+
           formatter = pkgs.nixpkgs-fmt;
+
+          devShells.default = pkgs.mkShell {
+            packages = with pkgs; [
+              pre-commit
+              nixpkgs-fmt
+            ];
+          };
         };
 
       flake = {

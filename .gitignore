@@ -1,0 +1,41 @@
+
+# ========== Editor & system junk ==========
+*.swp
+*.swo
+*.swx
+*.bak
+*.tmp
+*.log
+*.DS_Store
+*.directory
+
+# ========== Nix stuff ==========
+/result
+/result-*
+/flake.lock
+
+# ========== Git hooks & pre-commit ==========
+/.pre-commit-config.yaml~
+/.pre-commit-hooks.yaml~
+/.cache/
+.cache-pre-commit/
+/.pre-commit-config.local.yaml
+/.pre-commit-config.local.yaml
+
+# ========== Python virtualenvs (if ever) ==========
+/venv/
+/.env/
+
+# ========== Node (if ever) ==========
+/node_modules/
+
+# ========== VSCode settings (if you use VSCode) ==========
+.vscode/
+
+# ========== Logs ==========
+*.log
+
+# ========== Build & misc ==========
+/build/
+/dist/
+/tmp/

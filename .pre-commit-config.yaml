@@ -1,0 +1,10 @@
+
+# .pre-commit-config.yaml
+repos:
+  - repo: local
+    hooks:
+      - id: nixpkgs-fmt
+        name: Format Nix files
+        entry: nixpkgs-fmt
+        language: system
+        files: \.nix$
