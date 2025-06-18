@@ -35,6 +35,7 @@ jobs:
       - name: 🧹 nix fmt && check
         run: nix fmt . && nix fmt . -- --check
 
+
       # 5️⃣ Check flake correctness
       - name: 🔍 nix flake check
         run: nix flake check --all-systems
