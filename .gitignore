@@ -11,13 +11,11 @@
 
 # ========== Nix stuff ==========
 result
-*.lock
 .direnv/
 .cache/
 .envrc
 /result
 /result-*
-/flake.lock
 
 # ========== Git hooks & pre-commit ==========
 /.pre-commit-config.yaml~
