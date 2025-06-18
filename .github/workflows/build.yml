@@ -1,5 +1,6 @@
-# Build final output & push to Cachix on main
-name: 🚀 Build & Push to Cachix
+
+# 🚀 Build and push full closure to Cachix on push to main
+name: 🚀 Build & Cache
 
 on:
   push:
@@ -7,25 +8,36 @@ on:
       - main
 
 jobs:
-  build:
-    name: 🏗️ Build & Upload
+  build-and-cache:
+    name: 📦 Build & Push to Cachix
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout
+      # 1️⃣ Checkout code
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
+      # 2️⃣ Install Nix (pin version & enable flakes)
       - name: 🧊 Install Nix
         uses: cachix/install-nix-action@v25
+        with:
+          nix_path: nixpkgs=channel:nixpkgs-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
 
-      - name: 🏷️ Setup Cachix
+      # 3️⃣ Setup Cachix with push access
+      - name: 📦 Setup Cachix
         uses: cachix/cachix-action@v14
         with:
           name: schrovimger
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - name: 🔨 Build .#default
-        run: nix build .#default --system x86_64-linux
+      # 4️⃣ Build default flake output (compile everything)
+      - name: 🔨 Build default package
+        run: nix build
 
-      - name: 📤 Push to Cachix
-        run: cachix push schrovimger ./result
+      # 5️⃣ Push entire closure to Cachix (CORRECT)
+      - name: 🚀 Push to Cachix
+        run: |
+          echo "Pushing flake output closure to Cachix..."
+          nix path-info --recursive .#default | cachix push schrovimger
