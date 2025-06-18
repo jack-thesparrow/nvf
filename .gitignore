@@ -10,6 +10,11 @@
 *.directory
 
 # ========== Nix stuff ==========
+result
+*.lock
+.direnv/
+.cache/
+.envrc
 /result
 /result-*
 /flake.lock
