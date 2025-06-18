@@ -32,8 +32,8 @@ jobs:
 
       # 4️⃣ Check flake formatting
 
-      - name: 🧹 nix fmt --check
-        run: nix fmt . -- --check
+      - name: 🧹 nix fmt && check
+        run: nix fmt . && nix fmt . -- --check
 
       # 5️⃣ Check flake correctness
       - name: 🔍 nix flake check
