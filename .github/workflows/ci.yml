@@ -31,7 +31,11 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }} # uncomment if you push cache too
 
       # 4️⃣ Check flake formatting
-      - name: 🧹 Format check
+
+      - name: 🧹 Install nixpkgs-fmt
+        run: nix profile install nixpkgs#nixpkgs-fmt
+      
+      - name: 🧹 Check formatting
         run: |
           nixpkgs-fmt $(find . -name '*.nix')
           git diff --exit-code
