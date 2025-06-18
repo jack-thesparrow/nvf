@@ -42,7 +42,7 @@ jobs:
 
       # 5️⃣ Check flake correctness
       - name: 🔍 nix flake check
-        run: nix flake check --all-systems
+        run: nix flake check --all-systems --no-update-lock-file
 
       # 6️⃣ Build default package (optional but good practice)
       - name: 🔨 nix build
