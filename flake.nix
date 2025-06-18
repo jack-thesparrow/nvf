@@ -65,6 +65,7 @@
               echo "✔ NVF configuration flake check passed" > $out
             '';
           };
+          formatter = pkgs.nixpkgs-fmt;
         };
 
       flake = {
