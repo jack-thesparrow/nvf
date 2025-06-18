@@ -31,12 +31,14 @@ jobs:
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }} # uncomment if you push cache too
 
       # 4️⃣ Check flake formatting
+
       - name: 🧹 Check nixpkgs-fmt
         run: |
           nix fmt . -- --check || {
             echo "❌ Unformatted files! Run 'nix fmt .' locally to fix.";
             exit 1;
           }
+
 
       # 5️⃣ Check flake correctness
       - name: 🔍 nix flake check
