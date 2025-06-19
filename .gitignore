@@ -14,10 +14,16 @@ result
 .direnv/
 .cache/
 .envrc
-/result
-/result-*
+./result
+./result-*
 
 # ========== Git hooks & pre-commit ==========
+./.pre-commit-config.yaml~
+./.pre-commit-hooks.yaml~
+./.cache/
+..cache-pre-commit/
+./.pre-commit-config.local.yaml
+./.pre-commit-config.local.yaml
 /.pre-commit-config.yaml~
 /.pre-commit-hooks.yaml~
 /.cache/

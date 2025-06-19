@@ -13,10 +13,11 @@
     ./notify.nix
     ./notes.nix
     ./minimap.nix
+    ./projects.nix
     ./snacks
     ./telescope.nix
     ./terminal.nix
-    ./telescope-ui-select.nix
+    #./telescope-ui-select.nix
     ./treesitter.nix
     ./yanky.nix
   ];

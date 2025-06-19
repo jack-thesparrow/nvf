@@ -1490,7 +1490,7 @@
         dashboard.button("g", "  Live grep", ":Telescope live_grep<CR>"),
         dashboard.button("r", "  Recent files", ":Telescope oldfiles<CR>"),
         dashboard.button("m", "  Bookmarks", ":Telescope marks<CR>"),
-        dashboard.button("c", "  Config", ":edit ~/.config/nvim/init.lua<CR>"),
+        dashboard.button("p", "  Projects", ":Telescope projects<CR>"),
         dashboard.button("q", "  Quit", ":qa<CR>")
       }
 

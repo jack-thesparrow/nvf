@@ -69,8 +69,18 @@
 
           devShells.default = pkgs.mkShell {
             packages = with pkgs; [
+              chafa
+              epub-thumbnailer
+              fd
+              fontpreview
+              ffmpegthumbnailer
+              git
+              imagemagick
               pre-commit
+              poppler-utils
               nixpkgs-fmt
+              nerd-fonts.jetbrains-mono
+              ripgrep
             ];
           };
         };
@@ -80,8 +90,19 @@
           { pkgs, ... }:
           {
             home.packages = [
+              pkgs.chafa
+              pkgs.epub-thumbnailer
+              pkgs.fd
+              pkgs.fontpreview
+              pkgs.ffmpegthumbnailer
               pkgs.git
-              pkgs.nixd
+              pkgs.imagemagick
+              pkgs.pre-commit
+              pkgs.poppler-utils
+              pkgs.nixpkgs-fmt
+              pkgs.nerd-fonts.jetbrains-mono
+              pkgs.ripgrep
+
               (nvf.lib.neovimConfiguration {
                 inherit pkgs;
                 modules = [ ./config ];

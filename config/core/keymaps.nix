@@ -9,6 +9,27 @@
       desc = "Find files wiht names";
     }
     {
+      key = "<leader>fp";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope projects<CR>";
+      desc = "Find Projects";
+    }
+    {
+      key = "<leader>fm";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope media_files<CR>";
+      desc = "Find Media Files";
+    }
+    {
+      key = "<leader>fb";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Telescope file_browser<CR>";
+      desc = "File Browser";
+    }
+    {
       key = "<leader>fg";
       mode = "n";
       silent = true;
