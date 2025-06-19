@@ -28,8 +28,8 @@
           "~/.config"
           "~/.nixpkgs"
         ];
+        manual_mode = true;
         silent_chdir = true;
-        manual_mode = false;
         scope_chdir = "global";
         exclude_chdir = {
           filetype = [

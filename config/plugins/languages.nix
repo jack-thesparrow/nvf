@@ -76,7 +76,18 @@
         };
         format.enable = true;
         format.type = "rustfmt";
-        lsp.enable = true;
+        lsp = {
+          enable = true;
+          opts = "
+            ['rust-analyzer'] = {
+              cargo = {allFeature = true},
+              checkOnSave = true;
+              procMacro = {
+                enable =true;
+              },
+            },
+            ";
+        };
       };
 
       yaml = {

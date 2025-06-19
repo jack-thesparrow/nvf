@@ -48,3 +48,6 @@ result
 /build/
 /dist/
 /tmp/
+./temp/
+temp.*
+test.*

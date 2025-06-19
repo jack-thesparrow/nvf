@@ -81,6 +81,7 @@
                 pre-commit
                 poppler-utils
                 nixpkgs-fmt
+                nixd
                 nerd-fonts.jetbrains-mono
                 ripgrep
               ]
@@ -103,6 +104,7 @@
               pkgs.pre-commit
               pkgs.poppler-utils
               pkgs.nixpkgs-fmt
+              pkgs.nixd
               pkgs.nerd-fonts.jetbrains-mono
               pkgs.ripgrep
 
