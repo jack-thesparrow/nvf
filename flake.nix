@@ -60,6 +60,7 @@
 
           checks.default = pkgs.stdenv.mkDerivation {
             name = "nvf-neovim-check";
+            buildInputs = pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
             buildCommand = ''
               echo "✔ NVF configuration flake check passed" > $out
             '';
@@ -68,20 +69,22 @@
           formatter = pkgs.nixpkgs-fmt;
 
           devShells.default = pkgs.mkShell {
-            packages = with pkgs; [
-              chafa
-              epub-thumbnailer
-              fd
-              fontpreview
-              ffmpegthumbnailer
-              git
-              imagemagick
-              pre-commit
-              poppler-utils
-              nixpkgs-fmt
-              nerd-fonts.jetbrains-mono
-              ripgrep
-            ];
+            packages =
+              with pkgs;
+              [
+                chafa
+                epub-thumbnailer
+                fd
+                ffmpegthumbnailer
+                git
+                imagemagick
+                pre-commit
+                poppler-utils
+                nixpkgs-fmt
+                nerd-fonts.jetbrains-mono
+                ripgrep
+              ]
+              ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
           };
         };
 
