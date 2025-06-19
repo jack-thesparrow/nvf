@@ -18,8 +18,8 @@ result
 ./result-*
 
 # ========== Git hooks & pre-commit ==========
-./.pre-commit-config.yaml~
-./.pre-commit-hooks.yaml~
+.pre-commit-config.yaml
+.pre-commit-hooks.yaml
 ./.cache/
 ..cache-pre-commit/
 ./.pre-commit-config.local.yaml
