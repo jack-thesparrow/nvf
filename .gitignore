@@ -9,45 +9,38 @@
 *.DS_Store
 *.directory
 
-# ========== Nix stuff ==========
+# ========== Nix build stuff ==========
 result
+result-*
 .direnv/
 .cache/
-.envrc
-./result
-./result-*
+
+# NOTE: Keep `.envrc` TRACKED!
+# Remove `.envrc` from here to version it properly.
 
 # ========== Git hooks & pre-commit ==========
-.pre-commit-config.yaml
-.pre-commit-hooks.yaml
-./.cache/
-..cache-pre-commit/
-./.pre-commit-config.local.yaml
-./.pre-commit-config.local.yaml
-/.pre-commit-config.yaml~
-/.pre-commit-hooks.yaml~
-/.cache/
+# You SHOULD track `.pre-commit-config.yaml` and `.pre-commit-hooks.yaml`!
+# So remove them from ignore.
+# Only ignore local caches.
 .cache-pre-commit/
-/.pre-commit-config.local.yaml
-/.pre-commit-config.local.yaml
+.pre-commit-config.local.yaml
+.pre-commit-config.yaml~
+.pre-commit-hooks.yaml~
 
-# ========== Python virtualenvs (if ever) ==========
+# ========== Python virtualenvs (if any) ==========
 /venv/
 /.env/
 
-# ========== Node (if ever) ==========
+# ========== Node.js (if any) ==========
 /node_modules/
 
-# ========== VSCode settings (if you use VSCode) ==========
+# ========== VSCode settings (if used) ==========
 .vscode/
-
-# ========== Logs ==========
-*.log
 
 # ========== Build & misc ==========
 /build/
 /dist/
 /tmp/
-./temp/
+temp/
 temp.*
 test.*
