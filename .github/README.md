@@ -68,6 +68,16 @@ no time.
 nix run github:jack-thesparrow/schrovimger
 ```
 
+Or if your have `cachix` installed and configured properly, you can skip the
+compilation time by using the cachix binary cache, that way you will only have
+to download the binaries.
+
+```shell
+nix run github:jack-thesparrow/schrovimger \
+--option extra-substituters https://schrovimger.cachix.org \
+--option extra-trusted-public-keys "schrovimger.cachix.org-1:wUDg44FWjTBa3CutgbINFRAEb8N5P2yTWze45jcGvMY="
+```
+
 ### How to install Schrovimger in your system
 
 To include the configuration as a replacement of Vanilla Neovim, you must first
@@ -155,7 +165,10 @@ Encountered an issue or have a question? Visit the
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/jack-thesparrow/schrovimger/blob/main/LICENSE). See the [LICENSE](https://github.com/jack-thesparrow/schrovimger/blob/main/LICENSE) file
+This project is licensed under the
+[MIT License](https://github.com/jack-thesparrow/schrovimger/blob/main/LICENSE).
+See the
+[LICENSE](https://github.com/jack-thesparrow/schrovimger/blob/main/LICENSE) file
 for more details.
 
 ## Acknowledgements
