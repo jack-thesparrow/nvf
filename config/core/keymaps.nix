@@ -107,6 +107,13 @@
       action = "<cmd>q<CR>";
       desc = "Close Split";
     }
+    {
+      key = "<leader>ht";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Hardtime toggle<CR>";
+      desc = "Toggle HardTime";
+    }
 
   ];
 }

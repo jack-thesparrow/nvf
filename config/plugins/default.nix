@@ -6,6 +6,7 @@
     ./fzf.nix
     ./filetree.nix
     ./git.nix
+    ./hardtime.nix
     ./languages.nix
     ./lsp.nix
     ./lualine.nix
