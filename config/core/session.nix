@@ -7,10 +7,10 @@
       loadLastSession = "<leader>slt";
       saveCurrentSession = "<leader>sc";
 
-      setupOpts = {
-        autoload_mode = "LastSession";
-        autosave_last_session = true;
-      };
+    };
+    setupOpts = {
+      autoload_mode = "LastSession";
+      autosave_last_session = true;
     };
   };
 }
