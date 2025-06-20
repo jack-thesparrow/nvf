@@ -113,6 +113,13 @@
       action = "<cmd>Hardtime toggle<CR>";
       desc = "Toggle HardTime";
     }
+    {
+      key = "<leader>tc";
+      mode = "n";
+      silent = true;
+      action = "<cmd>TSContext toggle<CR>";
+      desc = "Toggle the Treesitter context";
+    }
 
   ];
 }
