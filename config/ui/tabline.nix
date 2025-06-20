@@ -27,7 +27,7 @@
     };
     # Buffer Navigation
     mappings = {
-      #cycleNext = "<leader>bl";
+      cycleNext = "<leader>bl";
       cyclePrevious = "<leader>bh";
       closeCurrent = "<leader>bx";
       pick = "<leader>bp";
