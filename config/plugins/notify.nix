@@ -1,4 +1,3 @@
-{ ... }:
 {
   vim.notify = {
     nvim-notify = {
