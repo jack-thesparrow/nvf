@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   vim.projects = {
     project-nvim = {

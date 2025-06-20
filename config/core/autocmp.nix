@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ ... }:
 {
   vim = {
     autocomplete.blink-cmp = {

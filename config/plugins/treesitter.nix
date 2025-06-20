@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ ... }:
 let
   treesitterLanguages = [
     "bash"

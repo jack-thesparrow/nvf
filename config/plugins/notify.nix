@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   vim.notify = {
     nvim-notify = {

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   vim.debugger = {
     nvim-dap = {
