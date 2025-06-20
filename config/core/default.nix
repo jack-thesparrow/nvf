@@ -7,6 +7,7 @@
     ./options.nix
     ./keymaps.nix
     ./luaLoader.nix
+    ./session.nix
     ./utility.nix
   ];
 }
