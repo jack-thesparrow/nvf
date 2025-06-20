@@ -36,18 +36,11 @@
       desc = "Find files with Contents FZF";
     }
     {
-      key = "<C-n>";
+      key = "<leader>nn";
       mode = "n";
       silent = true;
-      action = "<cmd>Neotree filesystem reveal left<CR>";
-      desc = "Show filesystem";
-    }
-    {
-      key = "<C-m>";
-      mode = "n";
-      silent = true;
-      action = "<cmd>Neotree close<CR>";
-      desc = "Close filesystem";
+      action = "<cmd>Neotree toggle<CR>";
+      desc = "Toggle Neotree filesystem show";
     }
     {
       key = "<K>";
