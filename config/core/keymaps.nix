@@ -78,6 +78,12 @@
       action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
       desc = "LSP Code Action (Visual)";
     }
-
+    {
+      key = "<leader>sm";
+      mode = "n";
+      silent = true;
+      action = "<cmd>Session<CR>";
+      desc = "Open Session Manager";
+    }
   ];
 }
