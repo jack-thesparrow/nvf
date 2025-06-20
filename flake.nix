@@ -54,16 +54,59 @@
             type = "app";
             program = "${nvimConfig.neovim}/bin/nvim";
             meta = {
-              description = "Launch jack-thesparrow nvf config";
+              description = "Launch jack-thesparrow NVF config";
             };
           };
 
-          checks.default = pkgs.stdenv.mkDerivation {
-            name = "nvf-neovim-check";
-            buildInputs = pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
-            buildCommand = ''
-              echo "✔ NVF configuration flake check passed" > $out
-            '';
+          checks = {
+            ## ✅ 1) Format check
+            format-check =
+              pkgs.runCommand "format-check"
+                {
+                  nativeBuildInputs = [
+                    pkgs.nixpkgs-fmt
+                    pkgs.diffutils
+                    pkgs.rsync
+                  ];
+                }
+                ''
+                  echo "📏 Running nixpkgs-fmt check..."
+                  mkdir $TMPDIR/orig
+                  mkdir $TMPDIR/formatted
+
+                  rsync -a --exclude orig --exclude formatted --exclude .git --exclude result ./ $TMPDIR/orig/
+                  rsync -a $TMPDIR/orig/ $TMPDIR/formatted/
+
+                  find $TMPDIR/formatted -name '*.nix' -exec nixpkgs-fmt {} +
+
+                  diff -ru $TMPDIR/orig $TMPDIR/formatted || (echo '❌ Formatting issues found'; exit 1)
+
+                  touch $out
+                '';
+
+            ## ✅ 2) Deadnix check
+            deadnix =
+              pkgs.runCommand "deadnix-check"
+                {
+                  nativeBuildInputs = [ pkgs.deadnix ];
+                }
+                ''
+                  echo "🧹 Running deadnix..."
+                  deadnix check . || (echo "❌ Dead code found"; exit 1)
+                  touch $out
+                '';
+
+            ## ✅ 3) Statix check
+            statix =
+              pkgs.runCommand "statix-check"
+                {
+                  nativeBuildInputs = [ pkgs.statix ];
+                }
+                ''
+                  echo "🕵️ Running statix..."
+                  statix check . || (echo "❌ Style issues found"; exit 1)
+                  touch $out
+                '';
           };
 
           formatter = pkgs.nixpkgs-fmt;
@@ -84,6 +127,8 @@
                 nixd
                 nerd-fonts.jetbrains-mono
                 ripgrep
+                deadnix
+                statix
               ]
               ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.fontpreview ];
           };
