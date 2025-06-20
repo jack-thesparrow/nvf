@@ -5,7 +5,7 @@
     ./debugger.nix
     ./fzf.nix
     ./filetree.nix
-    #./git.nix
+    ./git.nix
     ./languages.nix
     ./lsp.nix
     ./lualine.nix
@@ -17,8 +17,8 @@
     ./snacks
     ./telescope.nix
     ./terminal.nix
-    #./telescope-ui-select.nix
     ./treesitter.nix
+    ./undoTree.nix
     ./yanky.nix
   ];
 }
