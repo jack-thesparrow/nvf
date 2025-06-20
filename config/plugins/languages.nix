@@ -49,6 +49,13 @@
             };
           };
         };
+        extraDiagonostics = {
+          enable = true;
+          types = [
+            "statix"
+            "deadnix"
+          ];
+        };
       };
 
       markdown = {
