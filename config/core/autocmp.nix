@@ -1,14 +1,38 @@
 { pkgs, lib, ... }:
 {
   vim = {
-    autocomplete.nvim-cmp = {
+    autocomplete.blink-cmp = {
       enable = true;
-
-      sources = lib.mkForce {
-        "nvim_lsp" = "[LSP]";
-        "path" = "[Path]";
-        "buffer" = "[Buffer]";
-        "luasnip" = "[snippets]";
+      mappings = {
+        close = "<C-e>";
+        complete = "<C-Space>";
+        confirm = "<CR>";
+        next = "<Tab>";
+        previous = "<S-Tab>";
+        scrollDocsDown = "<C-f>";
+        scrollDocsUp = "<C-d>";
+      };
+      setupOpts = {
+        signature.enabled = true;
+        completion = {
+          documentation = {
+            auto_show = true;
+          };
+          menu = {
+            auto_show = true;
+          };
+        };
+      };
+      sourcePlugins = {
+        emoji = {
+          enable = true;
+        };
+        ripgrep = {
+          enable = true;
+        };
+        spell = {
+          enable = true;
+        };
       };
     };
   };

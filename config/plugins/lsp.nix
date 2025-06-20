@@ -6,7 +6,7 @@
       enable = true;
       lspconfig.enable = true;
       formatOnSave = true;
-      lspSignature.enable = true;
+      lspSignature.enable = false;
       lspkind.enable = true;
       lspsaga.enable = true;
       inlayHints.enable = true;
