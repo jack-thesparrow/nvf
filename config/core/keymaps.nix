@@ -1,12 +1,11 @@
-{ ... }:
 {
   vim.keymaps = [
     {
-      key = "<C-p>";
+      key = "<leader>ff";
       mode = "n";
       silent = true;
       action = "<cmd>Telescope find_files<CR>";
-      desc = "Find files wiht names";
+      desc = "Find files with names";
     }
     {
       key = "<leader>fp";
