@@ -40,6 +40,24 @@ workflow providing an unparalled coding experience.
     <img src = "assets/telescope.png">
 </details>
 
+<br>
+
+> [!WARNING]
+> ⚠️ **hardtime.nvim is configured with maximum strictness!**
+>
+> **Since I want to learn VIM Motions I have enabled hardtime-nvim with
+> precognition!**
+>
+> - Holding or repeating `h/j/k/l` and other basic motions is discouraged.
+> - You may see popups or be blocked for inefficient navigation.
+> - This is intentional — to help you master efficient Vim motions.
+>
+> **Toggle it:** Press `<leader>ht` to turn Hardtime ON or OFF at any time.
+>
+> **Tip:** Don’t be afraid to disable it when you want a break!
+>
+> **Turn OFF:** You can turn the plugin off in `config/plugins/hardtime.nix`
+
 ## Features
 
 - **Text-Editor/IDE**: Schrovimger aims to provide a non-bloated, minimal and
