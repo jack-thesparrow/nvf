@@ -9,5 +9,6 @@
     ./luaLoader.nix
     ./session.nix
     ./utility.nix
+    ./whichKey.nix
   ];
 }
