@@ -49,7 +49,7 @@
             };
           };
         };
-        extraDiagonostics = {
+        extraDiagnostics = {
           enable = true;
           types = [
             "statix"

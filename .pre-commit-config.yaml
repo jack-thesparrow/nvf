@@ -3,8 +3,9 @@
 repos:
   - repo: local
     hooks:
-      - id: nixpkgs-fmt
-        name: Format Nix files
-        entry: nixpkgs-fmt
+      - id: nixfmt-rfc-style
+        name: Format Nix files with RFC-style nixfmt
+        entry: nixfmt  # <-- use nixfmt because nixfmt-rfc-style provides the binary as 'nixfmt'
         language: system
         files: \.nix$
+

@@ -9,11 +9,12 @@
   };
 
   outputs =
-    { nixpkgs
-    , nixpkgs-stable
-    , flake-parts
-    , nvf
-    , ...
+    {
+      nixpkgs,
+      nixpkgs-stable,
+      flake-parts,
+      nvf,
+      ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -64,20 +65,20 @@
               pkgs.runCommand "format-check"
                 {
                   nativeBuildInputs = [
-                    pkgs.nixpkgs-fmt
+                    pkgs.nixfmt-rfc-style
                     pkgs.diffutils
                     pkgs.rsync
                   ];
                 }
                 ''
-                  echo "📏 Running nixpkgs-fmt check..."
+                  echo "📏 Running nixfmt-rfc-style check..."
                   mkdir $TMPDIR/orig
                   mkdir $TMPDIR/formatted
 
                   rsync -a --exclude orig --exclude formatted --exclude .git --exclude result ./ $TMPDIR/orig/
                   rsync -a $TMPDIR/orig/ $TMPDIR/formatted/
 
-                  find $TMPDIR/formatted -name '*.nix' -exec nixpkgs-fmt {} +
+                  find $TMPDIR/formatted -name '*.nix' -exec nixfmt {} +
 
                   diff -ru $TMPDIR/orig $TMPDIR/formatted || (echo '❌ Formatting issues found'; exit 1)
 
@@ -109,7 +110,7 @@
                 '';
           };
 
-          formatter = pkgs.nixpkgs-fmt;
+          formatter = pkgs.nixfmt-rfc-style;
 
           devShells.default = pkgs.mkShell {
             packages =
@@ -123,7 +124,7 @@
                 imagemagick
                 pre-commit
                 poppler-utils
-                nixpkgs-fmt
+                nixfmt-rfc-style
                 nixd
                 nerd-fonts.jetbrains-mono
                 ripgrep
@@ -148,7 +149,7 @@
               pkgs.imagemagick
               pkgs.pre-commit
               pkgs.poppler-utils
-              pkgs.nixpkgs-fmt
+              pkgs.nixfmt-rfc-style
               pkgs.nixd
               pkgs.nerd-fonts.jetbrains-mono
               pkgs.ripgrep
