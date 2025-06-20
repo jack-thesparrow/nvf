@@ -11,6 +11,7 @@
       "<leader>d" = "+debug"; # DAP
       "<leader>g" = "+git"; # Git actions
       "<leader>c" = "+code"; # LSP code actions
+      "gz" = "+surround"; # Surround
     };
 
     setupOpts = {
