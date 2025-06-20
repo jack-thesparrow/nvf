@@ -12,7 +12,6 @@
     setupOpts = {
       autoload_mode = "LastSession";
       autosave_last_session = true;
-
       autosave_ignore_buftypes = [
         "terminal"
         "quickfix"

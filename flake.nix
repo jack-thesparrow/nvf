@@ -72,6 +72,7 @@
                 }
                 ''
                   echo "📏 Running nixfmt-rfc-style check..."
+
                   mkdir $TMPDIR/orig
                   mkdir $TMPDIR/formatted
 
