@@ -20,6 +20,12 @@
       shiftwidth = 2;
       breakindent = true;
 
+      # Fold Settings
+      foldcolumn = "1";
+      foldlevel = 99;
+      foldlevelstart = 99;
+      foldenable = false;
+
       shada = "!,'100,<50,s10,h";
       #shadafile = "NONE";
 

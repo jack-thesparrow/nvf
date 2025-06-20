@@ -5,5 +5,6 @@
     ./ibl.nix
     ./noice.nix
     ./tabline.nix
+    ./ufo.nix
   ];
 }
