@@ -1,5 +1,6 @@
 
-# 🚀 Build and push full closure to Cachix on push to main
+# 🚀 Build & Cache: Runs on push to main, builds, and pushes to Cachix
+
 name: 🚀 Build & Cache
 
 on:
@@ -17,7 +18,7 @@ jobs:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Install Nix (pin version & enable flakes)
+      # 2️⃣ Install Nix + enable flakes
       - name: 🧊 Install Nix
         uses: cachix/install-nix-action@v25
         with:
@@ -25,18 +26,27 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
 
-      # 3️⃣ Setup Cachix with push access
+      # 3️⃣ Setup Cachix with push permissions
       - name: 📦 Setup Cachix
         uses: cachix/cachix-action@v14
         with:
           name: schrovimger
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      # 4️⃣ Build default flake output (compile everything)
+      # 4️⃣ (Optional but safe) Verify repo clean
+      - name: 📁 Verify no uncommitted changes
+        run: |
+          git diff --exit-code
+
+      # 5️⃣ (Optional but safe) Run flake checks again
+      - name: 🔍 Run flake checks
+        run: nix flake check --all-systems --no-update-lock-file
+
+      # 6️⃣ Build default flake output
       - name: 🔨 Build default package
         run: nix build
 
-      # 5️⃣ Push entire closure to Cachix (CORRECT)
+      # 7️⃣ Push closure to Cachix
       - name: 🚀 Push to Cachix
         run: |
           echo "Pushing flake output closure to Cachix..."

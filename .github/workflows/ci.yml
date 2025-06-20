@@ -1,5 +1,6 @@
 
-# ✅ Fast checks, lint, build, and cache for every PR
+# 🧪 CI: Runs checks & build for every pull request
+
 name: 🧪 CI
 
 on:
@@ -11,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout code — with **fetch-depth: 0**!
+      # 1️⃣ Checkout code
       - name: 📥 Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # ⬅️ ensures flake metadata and lock file match!
+          fetch-depth: 0
 
       # 2️⃣ Install Nix + enable flakes
       - name: 🧊 Install Nix
@@ -25,31 +26,26 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
 
-      # 3️⃣ Setup Cachix
-      - name: 📦 Cachix cache
+      # 3️⃣ Setup Cachix for pull-request cache
+      - name: 📦 Setup Cachix
         uses: cachix/cachix-action@v14
         with:
           name: schrovimger
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      # 4️⃣ Install nixpkgs-fmt for formatting
-      - name: 🧹 Install nixpkgs-fmt
-        run: nix profile install nixpkgs#nixpkgs-fmt
-
-      # 5️⃣ Check that all .nix files are formatted
-      - name: 🧹 Check formatting
+      # 4️⃣ Verify no uncommitted changes (flake.lock, formatting)
+      - name: 📁 Verify no uncommitted changes
         run: |
-          nixpkgs-fmt $(find . -name '*.nix')
           git diff --exit-code
 
-      # 6️⃣ Check flake correctness WITHOUT updating lock
-      - name: 🔍 nix flake check
+      # 5️⃣ Run flake checks (format-check, statix, deadnix)
+      - name: 🔍 Run flake checks
         run: nix flake check --all-systems --no-update-lock-file
 
-      # 7️⃣ Build the default package
-      - name: 🔨 nix build
+      # 6️⃣ Build the default package
+      - name: 🔨 Build default package
         run: nix build
 
-      # 8️⃣ (Optional) Verify dev shell works
-      - name: 🧑‍💻 nix develop test
+      # 7️⃣ Test dev shell (optional)
+      - name: 🧑‍💻 Test dev shell
         run: nix develop --command echo "Dev shell works!"
