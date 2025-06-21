@@ -5,6 +5,7 @@
     ./debugger.nix
     ./fzf.nix
     ./filetree.nix
+    ./floaterm.nix
     ./git.nix
     ./hardtime.nix
     ./languages.nix

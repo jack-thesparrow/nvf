@@ -113,6 +113,16 @@
       action = "<cmd>TSContext toggle<CR>";
       desc = "Toggle the Treesitter context";
     }
+    {
+      key = "<leader>tt";
+      mode = [
+        "n"
+        "t"
+      ];
+      silent = true;
+      action = "<cmd>FloatermToggle<CR>";
+      desc = "Toggle Floaterm";
+    }
 
   ];
 }
