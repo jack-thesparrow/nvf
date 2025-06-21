@@ -123,6 +123,5 @@
       action = "<cmd>FloatermToggle<CR>";
       desc = "Toggle Floaterm";
     }
-
   ];
 }
