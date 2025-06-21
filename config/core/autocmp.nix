@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   vim = {
     autocomplete.blink-cmp = {
@@ -12,17 +12,26 @@
         scrollDocsDown = "<C-f>";
         scrollDocsUp = "<C-d>";
       };
-      setupOpts = {
-        signature.enabled = true;
-        completion = {
-          documentation = {
-            auto_show = true;
-          };
-          menu = {
-            auto_show = true;
-          };
-        };
-      };
+      setupOpts = lib.generators.mkLuaInline ''
+        {
+          enabled = function()
+            return vim.bo.filetype ~= "typr"
+          end,
+
+          signature = {
+            enabled = true,
+          },
+
+          completion = {
+            documentation = {
+              auto_show = true,
+            },
+            menu = {
+              auto_show = true,
+            },
+          },
+        }
+      '';
       sourcePlugins = {
         emoji = {
           enable = true;

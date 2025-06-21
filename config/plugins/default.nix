@@ -13,6 +13,7 @@
     ./luasnip.nix
     ./notify.nix
     ./notes.nix
+    ./nvzone-typr.nix
     ./minimap.nix
     ./projects.nix
     ./snacks
