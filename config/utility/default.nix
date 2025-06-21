@@ -2,6 +2,7 @@
   imports = [
     ./flash-nvim.nix
     ./image-nvim.nix
+    ./mutlicursors.nix
     ./outline.nix
     ./precognition.nix
     ./preview.nix
