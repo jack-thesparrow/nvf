@@ -10,7 +10,7 @@
 
     };
     setupOpts = {
-      autoload_mode = "LastSession";
+      autoload_mode = "Disabled";
       autosave_last_session = true;
       autosave_ignore_buftypes = [
         "terminal"
