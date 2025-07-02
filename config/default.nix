@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./assistant
     ./core
     ./plugins
     ./themes
