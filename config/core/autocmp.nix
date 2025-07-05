@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   vim = {
     autocomplete.blink-cmp = {
@@ -14,7 +13,47 @@
         scrollDocsUp = "<C-d>";
       };
 
+      sourcePlugins = {
+        emoji.enable = true;
+        ripgrep.enable = true;
+        spell.enable = true;
+      };
+
       setupOpts = {
+
+        sources = {
+          default = [
+            "lsp"
+            "snippets"
+            "spell"
+            "path"
+            "buffer"
+          ];
+
+          providers = {
+            lsp = {
+              min_keyword_length = 3;
+              score_offset = 5;
+            };
+            snippets = {
+              min_keyword_length = 2;
+              score_offset = 4;
+            };
+            spell = {
+              min_keyword_length = 3;
+              score_offset = 3;
+            };
+            path = {
+              min_keyword_length = 3;
+              score_offset = 2;
+            };
+            buffer = {
+              min_keyword_length = 5;
+              score_offset = 1;
+            };
+          };
+        };
+
         cmdline.keymap.preset = "none";
 
         completion = {
@@ -22,11 +61,6 @@
           menu.auto_show = true;
         };
 
-      };
-      sourcePlugins = {
-        emoji.enable = true;
-        ripgrep.enable = true;
-        spell.enable = true;
       };
 
     };
