@@ -15,19 +15,20 @@
       };
 
       setupOpts = {
-        cmdline.keymap.preset = "default";
+        cmdline.keymap.preset = "none";
 
         completion = {
           documentation.auto_show = true;
           menu.auto_show = true;
         };
 
-        sourcePlugins = {
-          emoji.enable = true;
-          ripgrep.enable = true;
-          spell.enable = true;
-        };
       };
+      sourcePlugins = {
+        emoji.enable = true;
+        ripgrep.enable = true;
+        spell.enable = true;
+      };
+
     };
   };
 }
